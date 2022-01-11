@@ -3,16 +3,32 @@ currentDay = moment().format("MMMM Do YYYY, h:mm:ss a");
 $("#currentDay").text(currentDay);
 
 // color code time blocks to indicate whether time is in the past, present, or future
-function colorTime(){
-    // if color is in past add class past
-    // if color is current add class present and class hour
-    // if color is future time add class future 
-}
+$(".time-block").each(function(){
+    var currentTime = moment();
+    var hour = moment().hour($(this).attr("data-hour"));
+    
+    // retrieve tasks from local storage 
+    var tasks = localStorage.getItem(hour.hour());
 
+    $(this).next().text(tasks)
+
+    // if color is in past add class past
+    if(hour < currentTime){
+        $(this).next().addClass("past")
+    }
+    // if color is current add class present and class hour
+    else if(hour.hour() === currentTime.hour()) {
+        $(this).next().addClass("present")
+    }
+    // if color is future time add class future 
+    else if(hour > currentTime){
+        $(this).next().addClass("future")
+    }
+})
 
 // Enter tasks and save to local storage
-localStorage.setItem("tasks", JSON.stringify());
+$(".saveBtn").on("click", function(){
+    var task = $(this).prev().val() 
+    localStorage.setItem($(this).prev().prev().attr("data-hour"), task)
+})
 
-
-// tasks appear from local storage after refresh 
-localStorage.getItem("tasks")
