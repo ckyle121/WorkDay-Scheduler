@@ -1,6 +1,6 @@
 # Work Day Scheduler
 ## Purpose 
-A simple calendar application that allows users to save events for each hour of the work day. It's purpose is to allow useres to organize their workday more efficiently. It runs in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+A simple calendar application that allows users to save events for each hour of the work day. It's purpose is to allow useres to organize their workday more efficiently. Each hour changes color based on its alignance with the current time. It runs in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
 ## Webpage: https://ckyle121.github.io/WorkDay-Scheduler/
 
